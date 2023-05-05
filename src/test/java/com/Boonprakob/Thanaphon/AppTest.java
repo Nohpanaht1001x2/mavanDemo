@@ -3,6 +3,9 @@ package com.Boonprakob.Thanaphon;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
+
+import java.io.IOException;
+
 /**
  * Unit test for simple App.
  */
@@ -17,9 +20,9 @@ public class AppTest
         assertTrue( true );
     }
     @Test
-    public void testMethod()
+    public void testMethod() throws IOException
     {
-        String s[] = {"First String","second string"};
+        String[] s = {"First String","second string"};
         App.main(s);
     }
 }
