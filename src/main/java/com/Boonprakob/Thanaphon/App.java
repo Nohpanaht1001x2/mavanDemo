@@ -33,7 +33,7 @@ public class App
             char[] c = new char[(int) file.length() - 36];      // hard-code, will fix later
             if(fileReader.read(c) == -1)        //already execute in if argument
             {
-                throw new IOException();
+                throw new IOException("the end of Stream had been reach");
             }
             System.out.println(file.length());
             System.out.println(c);
