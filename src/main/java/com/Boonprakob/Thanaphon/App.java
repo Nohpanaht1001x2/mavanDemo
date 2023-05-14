@@ -30,7 +30,7 @@ public class App
             fileWriter.flush();     //write String buffer to file
 //            fileWriter.close();     //close does not require since use try-with-resource with AutoCloseable
 
-            char[] c = new char[(int) file.length() - 36];      // hard-code, will fix later
+            char[] c = new char[(int) file.length()];      // hard-code, will fix later
             if(fileReader.read(c) == -1)        //already execute in if argument
             {
                 throw new IOException("the end of Stream had been reach");

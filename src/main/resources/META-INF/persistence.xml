@@ -1,0 +1,18 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             version="2.0">
+    <persistence-unit name="student" transaction-type="RESOURCE_LOCAL">
+        <class>com.Boonprakob.Thanaphon.domain.StudentOfThanaphon</class>
+        <validation-mode>NONE</validation-mode>
+        <properties>
+            <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://192.168.1.132:5432/student"/>
+            <property name="jakarta.persistence.jdbc.user" value="student"/>
+            <property name="jakarta.persistence.jdbc.password" value="computer"/>
+            <property name="jakarta.persistence.schema-generation.database.action" value="none"/>
+            <property name="jakarta.persistence.properties.hibernate.show_sql" value="true"/>
+            <property name="hibernate.ddl-auto" value="update"/>
+        </properties>
+    </persistence-unit>
+</persistence>
