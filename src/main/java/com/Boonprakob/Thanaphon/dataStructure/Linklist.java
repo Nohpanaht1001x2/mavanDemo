@@ -16,7 +16,10 @@ class Linklist<T>
 {
     //instance variable headNode
     Node<T> headNode;
+    public Linklist()
+    {
 
+    }
     void push(T data)
     {
         Node<T> newNode = new Node<T>(data);
@@ -24,9 +27,33 @@ class Linklist<T>
         headNode = newNode;
     }
 
+    @Override
+    public String toString()
+    {
+        try
+        {
+            return "{" + headNode.data.toString() + " , " + toString(headNode.nextNode);
+        }
+        catch (NullPointerException e)
+        {
+            return "{" + headNode.data.toString() + "}";
+        }
+    }
+    public String toString(Node n)
+    {
+        if (n.nextNode == null)
+            return n.data.toString() + "}";
+        return n.data.toString() +" , "+ toString(n.nextNode);
+    }
+
     void append(T data)
     {
         Node <T>iter = headNode;
+        if (headNode == null)   //in case of using append to add the first element
+        {
+            headNode = new Node<>(data);
+            return; //terminated the method
+        }
         while (iter.nextNode != null)
         {
             iter = iter.nextNode;
@@ -79,16 +106,16 @@ class Linklist<T>
         }
     }
 
-    boolean search(Node <T>head, T value)
+    boolean search(Node <T>iter, T value)
     {
-        while (head != null)
+        while (iter != null)
         {
-            if (value == head.data)
+            if (value == iter.data||value.equals(iter.data))
             {
 //                System.out.print(value == head.data?"Yes\n":"");
                 return true;
             }
-            head = head.nextNode;
+            iter = iter.nextNode;
             //just change local reference variable "head", not edit any instance variable
             //so it safe to use and set new reference to "head" directly
             //i think so ...
