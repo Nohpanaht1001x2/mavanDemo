@@ -38,11 +38,12 @@ public class TestLinklist {
     static public void testSetIterator()
     {
         MySet a = new MySet();
-        for (int i = 0; i < 16; i++) {
+        for (int i = 0; i < 100; i++) {
             if (i % 2 == 0) {
                 a.add(i);
                 a.add(i);
             }
+            a.add(i);
         }
         Iterator iter = a.iterator();
         while (iter.hasNext())

@@ -69,21 +69,24 @@ public class MySet<T> implements Iterable{
         return new Iterator<T>() {
             int row = 0;
             Iterator<T> linkListiter = table[row].iterator();
-            T dummy;
             @Override
             public boolean hasNext() {
+                while (!linkListiter.hasNext() && row<tableSize-1){   //check if the cursor has reach the last node and there is a next row exist
+                    //linkListiter.hasNext : check if the row is null/next node of cursor is null
+                    //hasNext() : check if the iterator NOT reach the last row; true if NOT reach the last ,false with vice versa
+                    row++;
+                    linkListiter =  table[row].iterator();
+                }
+                if (row == tableSize -1 && !linkListiter.hasNext()){
+                    return false;
+                }
                 return row<tableSize-1;
             }
 
             @Override
             public T next() {
-                while (!linkListiter.hasNext() && row < tableSize-1){
-                    row++;
-                    linkListiter =  table[row].iterator();
 
-                }
-                dummy = linkListiter.next();
-                return dummy;
+                return linkListiter.next();
             }
         };
     }
